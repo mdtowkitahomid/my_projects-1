@@ -1,23 +1,623 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hero Section</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaamin | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0d0d0d;
+            color: #f1f1f1;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: url(pexels-sanaan-3075993.jpg) no-repeat center center/cover;
+            animation: Yoo 14s ease-in-out infinite alternate;
+            position: relative;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes Yoo {
+            from {
+                background-size: 100%;
+            }
+
+            to {
+                background-size: 110%;
+            }
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.75);
+            width: 100%;
+            height: 100%;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            transition: background 0.3s ease;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #ccc;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #00c3ff;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #fff;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-content span {
+            color: #00c3ff;
+        }
+
+        .hero-content p {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .btn {
+            background: #00c3ff;
+            color: #000;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            margin: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn.alt {
+            background: transparent;
+            border: 2px solid #00c3ff;
+            color: #00c3ff;
+        }
+
+        .btn.alt:hover {
+            background: #00c3ff;
+            color: #000;
+        }
+
+        .btn:hover {
+            background: #00c3ff;
+            color: #000;
+        }
+
+        .social-icons {
+            margin-top: 1rem;
+        }
+
+        .social-icons a i {
+            color: #ccc;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .social-icons a:hover i {
+            color: #00c3ff;
+            transform: scale(1.3);
+            box-shadow: 0 4px 8px rgba(0, 195, 255, 0.3);
+        }
+
+        .about {
+            position: relative;
+            background: url(WhatsApp\ Image\ 2025-07-08\ at\ 4.22.02\ PM.jpeg);
+            background-size: cover;
+            background-position-y: bottom;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            padding: 6rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 20px;
+            margin: 4rem auto;
+            max-width: 1200px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+            border-radius: 20px;
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 1000px;
+        }
+
+        .about-img img {
+            width: 280px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .about-img img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            color: #f1f1f1;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        .about-text h2 {
+            color: #00c3ff;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .about-text p {
+            color: #ccc;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .resume {
+            position: relative;
+            background: url(pexels-kritsada-seekham-55591776-7836295.jpg);
+            background-size: cover;
+            background-position-y: bottom;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            padding: 6rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 20px;
+            margin: 4rem auto;
+            max-width: 1200px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .resume::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba (0, 0, 0, 0.4);
+            z-index: 0;
+            border-radius: 20px;
+        }
+
+        .resume-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 4rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 1000px;
+        }
+
+        .skills,
+        .experience {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .skills h2,
+        .experience h2 {
+            text-decoration: underline;
+        }
+
+        .skills ul,
+        .experience ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills li,
+        .experience li {
+            margin-bottom: 1rem;
+        }
+
+        .bar {
+            display: block;
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: #00c3ff;
+            border-radius: 4px;
+        }
+
+        .portfolio {
+            position: relative;
+            background: url(pexels-farshid-tahmasb-706146363-30306319.jpg);
+            background-size: cover;
+            background-position-y: bottom;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 20px;
+            margin: 4rem auto;
+            max-width: 1200px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            animation: UUU 14S ease-in-out infinite alternate;
+        }
+
+        @keyframes UUU {
+            from {
+                background-size: 100%;
+            }
+
+            to {
+                background-size: 110%;
+            }
+        }
+
+        .portfolio::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+        }
+
+        .portfolio h2 {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2rem;
+            color: #00c3ff;
+        }
+
+        .portfolio-gallery {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .portfolio-gallery img {
+            width: 100%;
+            border-radius: 12px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 195, 255, 0.3);
+        }
+
+        .contact {
+            background: url(pexels-daniel-reche-718241-1556704.jpg);
+            background-size: cover;
+            background-position-y: bottom;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 20px;
+            margin: 4rem auto;
+            max-width: 1200px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: "";
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 1000px;
+        }
+
+        .contact h2 {
+            color: #00c3ff;
+        }
+
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: row;
+                gap: 0.5rem;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                display: flex;
+            }
+
+            .about-content,
+            .resume-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content P {
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                width: 80%;
+                max-width: 250px;
+            }
+
+            .btn.alt {
+                margin-top: 0;
+            }
+
+            .social-icons {
+                margin-top: 1rem;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .btn,
+            .btn.alt {
+                display: block;
+                width: 100%;
+                max-width: 280px;
+                font-size: 0.9rem;
+                text-align: center;
+                margin: 0.3rem auto;
+            }
+
+            .hero-content h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Hello, I'm Tahomid</h1>
-        <p>I build stylish websites that blend functionality with creativity.</p>
-        <a href="#contact" class="neon-button">Let's Work Together</a>
-      </div>
-      <div class="hero-image">
-        <img src="https://c4.wallpaperflare.com/wallpaper/559/456/991/digital-digital-art-artwork-futuristic-futuristic-city-hd-wallpaper-preview.jpg" alt="Hero" />
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="overlay">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hero-content">
+                <h1>YAAMIN <span>ALI</span></h1>
+                <p>Frontend Developer & Creative Thinker</p>
+                <a href="#resume" class="btn">Download CV</a>
+                <a href="#portfolio" class="btn alt">My Projects</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </section> <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-img">
+                <img src="WhatsApp Image 2025-07-08 at 11.17.46 AM.jpeg" alt="Yaamin Portrait">
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Email: yaamin@email.com</p>
+                <p>Frontend Developer passionate about clean design and seamless user experiences. Always exploring new
+                    technologies and building meaningful solutions.</p>
+                <p>Location: Dhaka, Bangladesh</p>
+            </div>
+        </div>
+    </section> <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="resume-content">
+            <div class="skills">
+                <h2>Software Skills</h2>
+                <ul>
+                    <li>HTML <span class="bar"><span style="width: 95%"></span></span></li>
+                    <li>CSS <span class="bar"><span style="width: 90%"></span></span></li>
+                    <li>Photoshop <span class="bar"><span style="width: 70%"></span></span></li>
+                </ul>
+                <h3>Languages</h3>
+                <ul>
+                    <li>English <span class="bar"><span style="width: 85%"></span></span></li>
+                    <li>Bangla <span class="bar"><span style="width: 100%"></span></span></li>
+                </ul>
+
+                <h3>Traits</h3>
+                <p>Creativity, Communication, Teamwork</p>
+            </div>
+            <div class="experience">
+                <h2>Experience</h2>
+                <ul>
+                    <li><strong>2024:</strong> Intern at WebCrafters</li>
+                    <li><strong>2023:</strong> Freelance Web Developer</li>
+                </ul>
+
+                <h3>Education</h3>
+                <p>Diploma in Computer Science (Running)</p>
+            </div>
+        </div>
+
+    </section> <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <h2>My Work</h2>
+        <div class="portfolio-gallery">
+            <img src="pexels-alina-rossoshanska-338724645-19892138.jpg" alt="Project 1">
+            <img src="pexels-zoe-galarza-2151579299-32818938.jpg" alt="Project 2">
+            <img src="pexels-cottonbro-7171113.jpg" alt="Project 3">
+        </div>
+    </section>
+
+    <!--Contact-->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2>Let's Connect</h2>
+            <p>Email: yaamin@email.com</p>
+            <p>Location: London, United Kingdom</p>
+        </div>
+
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Yaamin Ali. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>
